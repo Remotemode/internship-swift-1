@@ -14,6 +14,7 @@
 		A870972526173F97002FE572 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A870972426173F97002FE572 /* Preview Assets.xcassets */; };
 		A870972E261DE9C2002FE572 /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A870972D261DE9C2002FE572 /* ItemModel.swift */; };
 		A8709733261F3913002FE572 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8709732261F3913002FE572 /* DetailView.swift */; };
+		A89C97662634879800320831 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89C97652634879800320831 /* BackgroundView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		A870972626173F97002FE572 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A870972D261DE9C2002FE572 /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
 		A8709732261F3913002FE572 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		A89C97652634879800320831 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				A870971F26173F96002FE572 /* ContentView.swift */,
 				A8709732261F3913002FE572 /* DetailView.swift */,
 				A806FD372626210C0076B879 /* ItemImage.swift */,
+				A89C97652634879800320831 /* BackgroundView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -163,6 +166,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A89C97662634879800320831 /* BackgroundView.swift in Sources */,
 				A870972E261DE9C2002FE572 /* ItemModel.swift in Sources */,
 				A8709733261F3913002FE572 /* DetailView.swift in Sources */,
 				A806FD382626210C0076B879 /* ItemImage.swift in Sources */,

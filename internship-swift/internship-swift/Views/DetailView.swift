@@ -12,22 +12,19 @@ struct DetailView: View {
     var size: CGFloat?
     
     var body: some View {
-        ScrollView(.vertical, showsIndicators: true) {
-            VStack() {
-                DetailViewTitle(item: item)
-                ItemImage()
-                    .background(Color.black)
-                DetailViewDescription(item: item)
-                DetailViewExpertComment(item: item)
+        ZStack {
+            BackgroundView()
+            ScrollView(.vertical, showsIndicators: true) {
+                VStack() {
+                    DetailViewTitle(item: item)
+                    ItemImage()
+                    DetailViewDescription(item: item)
+                    DetailViewExpertComment(item: item)
+                }
+                .padding()
             }
-            .padding()
         }
-    }
-}
-
-struct DetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        DetailView(item: .init())
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
@@ -39,7 +36,6 @@ struct DetailViewTitle: View {
             Text(item.title)
                 .font(.title)
                 .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                .foregroundColor(.blue)
                 .multilineTextAlignment(.leading)
             Spacer(minLength: 0)
         }
@@ -53,7 +49,6 @@ struct DetailViewDescription: View {
         HStack {
             Text(item.description)
                 .font(.body)
-                .foregroundColor(.blue)
                 .multilineTextAlignment(.leading)
             Spacer(minLength: 0)
         }
@@ -77,6 +72,12 @@ struct DetailViewExpertComment: View {
             }
             .padding()
         }
-        .background(Color(.blue))
+        .background(Color("ExpertCommentBackground"))
+    }
+}
+
+struct DetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        DetailView(item: .init())
     }
 }

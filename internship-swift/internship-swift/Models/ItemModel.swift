@@ -5,7 +5,7 @@
 //  Created by Alexandr on 4/7/21.
 //
 
-struct ItemModel{
+struct ItemModel: Hashable {
     let description: String
     let expertComment: String
     let id: Int

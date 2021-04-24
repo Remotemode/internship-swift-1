@@ -8,21 +8,51 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    init() {
+        UITableView.appearance().backgroundColor = .clear
+        UITableViewCell.appearance().backgroundColor = .clear
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithTransparentBackground()
+        appearance.largeTitleTextAttributes = [
+            NSAttributedString.Key.foregroundColor : UIColor(Color("TextColor"))
+        ]
+        appearance.titleTextAttributes = [
+            NSAttributedString.Key.foregroundColor : UIColor(Color("TextColor"))
+        ]
+        appearance.backgroundColor = UIColor(Color("PrimaryColor"))
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        UINavigationBar.appearance().standardAppearance = appearance
+        UINavigationBar.appearance().compactAppearance = appearance
+    }
+    
     var body: some View {
-        NavigationView{
-            List(/*@START_MENU_TOKEN@*/0 ..< 5/*@END_MENU_TOKEN@*/) { item in
-                ListItem(itemModel: .init())
+        
+        let hardcoded = ItemModel.init(description: "Some very long description sdakhjjdbkajsd sadjhas fjhas fjsa fjhas fajhs fajsh", expertComment: "Experts thoughts on that fact are sakjdasdbas fas fjas fsjah fashj fjas fjhsa fasjhf ", id: 1, imageUrl: "", title: "Really long title that ypu ever saw in ypur whole life")
+        let models = [ItemModel.init(), ItemModel.init(), ItemModel.init(), hardcoded]
+
+        NavigationView {
+            ZStack {
+                BackgroundView()
+                List {
+                    ForEach(models, id: \.self) { item in
+                            ListItem(itemModel : item)
+                        
+                    }
+                    .listRowBackground(Color.clear)
+                }
+                .navigationBarTitle("SHARETRADE")
             }
-            .navigationBarTitle("SHARETRADE")
         }
     }
-}
+} 
 
 struct ListItem: View {
     let itemModel: ItemModel
     
     var body: some View {
-        NavigationLink(
+        NavigationLink (
             destination: DetailView(item: itemModel)
         )
         {
@@ -31,8 +61,8 @@ struct ListItem: View {
                 ItemTitle(itemModel: itemModel)
             }
             .padding(.vertical, 8)
-            .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: 2.0)
-            .background(Color(.darkGray))
+            .border(Color.black, width: 2.0)
+            .background(Color("PrimaryColor"))
         }
     }
     
@@ -44,7 +74,7 @@ struct ListItem: View {
                 .font(Font.title2.weight(.bold))
                 .multilineTextAlignment(.center)
                 .frame(maxWidth: .infinity)
-                .foregroundColor(.white)
+                .foregroundColor(Color("TextColor"))
                 .padding(.trailing, 20.0)
                 .padding(.leading, 20.0)
                 .lineLimit(4)
@@ -54,7 +84,7 @@ struct ListItem: View {
     struct ContentView_Previews: PreviewProvider {
         static var previews: some View {
             ContentView()
-                .previewDevice("iPhone 8")
+                .previewDevice("iPhone 11")
         }
     }
 }
