@@ -28,9 +28,7 @@ struct ContentView: View {
     }
     
     var body: some View {
-        
-        let hardcoded = ItemModel.init(description: "Some very long description sdakhjjdbkajsd sadjhas fjhas fjsa fjhas fajhs fajsh", expertComment: "Experts thoughts on that fact are sakjdasdbas fas fjas fsjah fashj fjas fjhsa fasjhf ", id: 1, imageUrl: "", title: "Really long title that ypu ever saw in ypur whole life")
-        let models = [ItemModel.init(), ItemModel.init(), ItemModel.init(), hardcoded]
+        let models = [ItemModel.init(), ItemModel.init(), ItemModel.init()]
 
         NavigationView {
             ZStack {
