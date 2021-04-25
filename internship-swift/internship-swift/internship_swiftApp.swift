@@ -14,7 +14,7 @@ struct internship_swiftApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(appDelegate: self.appDelegate)
         }
     }
 }
