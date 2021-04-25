@@ -58,7 +58,7 @@ struct ListItem: View {
         )
         {
             VStack(alignment: .center, spacing:0) {
-                ItemImage(height: 180)
+                ItemImage(height: 180, url: itemModel.imageUrl)
                 ItemTitle(itemModel: itemModel)
             }
             .padding(.vertical, 8)
