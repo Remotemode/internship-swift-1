@@ -17,7 +17,7 @@ struct DetailView: View {
             ScrollView(.vertical, showsIndicators: true) {
                 VStack() {
                     DetailViewTitle(item: item)
-                    ItemImage()
+                    ItemImage(url: item.imageUrl)
                     DetailViewDescription(item: item)
                     DetailViewExpertComment(item: item)
                 }

@@ -9,7 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
     
-    init() {
+    @ObservedObject var info: AppDelegate
+    
+    init(appDelegate: AppDelegate) {
+        self.info = appDelegate
+        
         UITableView.appearance().backgroundColor = .clear
         UITableViewCell.appearance().backgroundColor = .clear
         
@@ -28,15 +32,12 @@ struct ContentView: View {
     }
     
     var body: some View {
-        
-        let hardcoded = ItemModel.init(description: "Some very long description sdakhjjdbkajsd sadjhas fjhas fjsa fjhas fajhs fajsh", expertComment: "Experts thoughts on that fact are sakjdasdbas fas fjas fsjah fashj fjas fjhsa fasjhf ", id: 1, imageUrl: "", title: "Really long title that ypu ever saw in ypur whole life")
-        let models = [ItemModel.init(), ItemModel.init(), ItemModel.init(), hardcoded]
 
         NavigationView {
             ZStack {
                 BackgroundView()
                 List {
-                    ForEach(models, id: \.self) { item in
+                    ForEach(info.news, id: \.self) { item in
                             ListItem(itemModel : item)
                         
                     }
@@ -57,7 +58,7 @@ struct ListItem: View {
         )
         {
             VStack(alignment: .center, spacing:0) {
-                ItemImage(height: 180)
+                ItemImage(height: 180, url: itemModel.imageUrl)
                 ItemTitle(itemModel: itemModel)
             }
             .padding(.vertical, 8)
@@ -83,7 +84,7 @@ struct ListItem: View {
     
     struct ContentView_Previews: PreviewProvider {
         static var previews: some View {
-            ContentView()
+            ContentView(appDelegate: AppDelegate.init())
                 .previewDevice("iPhone 11")
         }
     }
